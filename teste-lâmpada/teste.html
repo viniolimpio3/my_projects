@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Teste da lâmpada</h1>
+		<script>
+
+			var quebrada = false;
+
+			function acaoLampada (parametro){
+				if (parametro == 1){
+					local = "img/lampada-acesa.jpg"	;				
+				};
+				if (parametro == 2){
+					local = "img/lampada-apagada.jpg";
+				};
+				if (parametro == 3){
+					local = "img/lampada-quebrada.jpg";
+				};
+				if (!quebrada){
+					document.getElementById("lampada").src = local;
+					if (parametro == 3){
+						quebrada = true;
+					};
+				};
+				
+
+			};			
+		</script>
+		<img src="img/lampada-apagada.jpg" id="lampada" onmousemove="acaoLampada(1)" onmouseout="acaoLampada(2)" onclick="acaoLampada(3)" />
+	</body>
+</html>

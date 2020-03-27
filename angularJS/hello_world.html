@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <html ng-app="helloWorld"> <!--Atributo => Diretiva "helloWorld é o nome da aplicação" -->
+	<head>
+		<title>Hello World</title>
+		<script src="angular.js"></script>
+
+		
+
+		<script>
+
+			
+
+			angular.module("helloWorld" , []);//Cria o modulo helloWorld
+			angular.module("helloWorld").controller("helloWorldControl", function($scope) {//localiza o módulo helloWorld e cria o controller helloWorldControl 
+				$scope.whatever = "Hello World!!";//$scope faz a transição do controller para o view, que é o DOM 
+			});
+
+		</script>
+	</head>
+	<body>
+ 		<!-- View : "O que o cliente vê" 
+			Controller: "Responsável pelo que a view consome"
+			Scope: "garçom" - faz a mediação entre o "cozinheiro"(controller) e o cliente (view)	
+			  Scope nada mais é que um objeto compartilhado	
+			-->
+
+
+		<!-- ng-controller vincúla um elemento da view(DOM, as tags num geral), com o controller(script)
+			Lembrando que quem faz a mediação entre view e controller é o $scope
+		  -->
+		<div ng-controller = "helloWorldControl">
+			{{whatever}} <!-- Isso mostra o que está em $scope -> é a interpolação da expressão  -->
+
+		</div>
+			
+	</body>
+</html>

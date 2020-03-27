@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Teste da lâmpada</h1>
+		<script>
+
+			var passa = true;
+
+			function acaoLampada (parametro){
+				if (passa){
+					document.getElementById("lampada").src = 'img/' + parametro + '.jpg';
+					if(parametro == 'lampada-quebrada'){
+						passa = false;
+					}
+
+					if(parametro == 'lampada-acesa'){
+						document.getElementById('mensagem').innerHTML = "Lâmpada Acesa." + passa;
+					}else{
+						document.getElementById('mensagem').innerHTML = "Lâmpada Apagada " + passa;
+					}									
+				}else{
+					document.getElementById('mensagem').innerHTML = "Lâmpada quebrada " + passa;
+				}
+
+				if(passa == false){
+					if(parametro == 'lampada-quebrada'){
+						document.getElementById('botao').style.display = 'block'
+					}
+				}
+				
+				if (parametro == "nova-lampada") {
+					if (passa == false) {
+						document.getElementById("lampada").src = "img/lampada-apagada.jpg";
+						passa = true;
+					}
+				}
+				if (passa) {
+					document.getElementById('botao').style.display = "none";
+				}
+				
+
+
+			}
+		</script>
+		<img src="img/lampada-apagada.jpg" id="lampada" onmousemove="acaoLampada('lampada-acesa')" onmouseout="acaoLampada('lampada-apagada')" onclick="acaoLampada('lampada-quebrada')" />
+		<p id="mensagem"></p>
+
+		<button id="botao" onclick='acaoLampada("nova-lampada")' style="display:none;" >
+			Trocar lâmpada
+		</button>
+	</body>
+</html>

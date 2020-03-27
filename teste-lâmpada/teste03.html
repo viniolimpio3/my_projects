@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Teste 03</title>
+		<link rel="stylesheet" href="css/estilo.css">
+		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+	</head>
+	<body>
+		<script>
+			var passa = true;
+			function mudaLampada (parametro){
+				if (passa){
+					document.getElementById("lampada").src = "img/"+ parametro +".jpg";
+		         		if(parametro == 'lampada-quebrada'){
+						passa = false;
+					}
+				}
+				if(passa){
+					document.getElementById("mensagem").innerHTML = "O estado é " + parametro +" : " + passa;
+				}else{
+					document.getElementById('mensagem').innerHTML = "A lâmpada quebrou agora :/ <br/> O estado da lâmpada é false.";
+				}
+
+
+				if(parametro == "lampada-quebrada"){
+					document.getElementById("botao").style.display = "block"
+				}
+				if(parametro == "nova-lampada"){
+					if(passa == false){
+						document.getElementById("lampada").src = "img/lampada-apagada.jpg";
+						passa = true;
+					}
+				}
+				if(passa){
+					document.getElementById("botao").style.display = "none";
+				}
+
+			}
+		</script> 
+		<img src="img/lampada-apagada.jpg" id="lampada" onmousemove="mudaLampada('lampada-acesa')" onmouseout="mudaLampada('lampada-apagada')" onclick="mudaLampada('lampada-quebrada')" />
+		<p id="mensagem"></p>
+		<button id="botao" onclick="mudaLampada('nova-lampada')" style="display:none"> 
+			 Relaxa , só apertar esse botao!
+		</button>
+	</body>
+</html>

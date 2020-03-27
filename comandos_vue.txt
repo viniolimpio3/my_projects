@@ -1,0 +1,4 @@
+COMANDOS NODE
+---------------------
+instalar vue: npm install -g @vue/cli
+rodar: npm run serve

@@ -1,0 +1,10 @@
+D:\2E - DSS\verifica_numero\verifica_numero\bin\Debug\verifica_numero.exe.config
+D:\2E - DSS\verifica_numero\verifica_numero\bin\Debug\verifica_numero.exe
+D:\2E - DSS\verifica_numero\verifica_numero\bin\Debug\verifica_numero.pdb
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.csprojAssemblyReference.cache
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.frmVerifica.resources
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.Properties.Resources.resources
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.csproj.GenerateResource.cache
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.csproj.CoreCompileInputs.cache
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.exe
+D:\2E - DSS\verifica_numero\verifica_numero\obj\Debug\verifica_numero.pdb

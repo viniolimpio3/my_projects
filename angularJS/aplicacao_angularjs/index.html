@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app ="listaTelefonica"><!-- Aqui vai sempre o Módulo principal da aplicação |ng-app define as fronteiras da aplicação -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Lista Telefônica</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<script src="angular/angular.js"></script>
+
+		<style>	
+
+			body{
+				font-family: Verdana !important;
+			}
+
+			.jumbotron{
+				margin-left:auto;
+				margin-right:auto;
+				width:35% ;
+				margin-top: 20px;		
+			}
+			.form-control{
+				margin:10px;
+			}
+
+		</style>	
+		
+		<script>
+			angular.module("listaTelefonica", []);//Os colchetes servem para definir a quantidade de módulos que vc quer criar
+
+			angular.module("listaTelefonica").controller("listaTelefonicaControl", function($scope){
+				$scope.bind = "Lista Telefônica";
+				$scope.contatos = [//array
+					{nome: 'Maria', telefone: "9999-9999"},
+					{nome: 'Ana', telefone: "3455-9959"},
+					{nome: 'Camilla', telefone: "8789-9999"},
+					{nome: 'Mariana', telefone: "4566-9999"}
+				];
+
+				// Mantra: Evitar ler scope no controller!! No máximo atribuir valor (=)
+				$scope.salvarContato = function(contato){
+					$scope.contatos.push(angular.copy(contato));//push() é um método que add um item a uma array
+					delete $scope.contato;//estou apagando apenas um item da array, o que o usuário digita
+					/*OU:
+						$scope.contatos.push({nome: nome, telefone: telefone} );
+					*/
+				};
+
+			});
+
+		</script>
+
+	</head>
+	<body ng-controller = "listaTelefonicaControl">
+		
+		<div class="jumbotron">
+			<!-- ng-bind="" serve para substituir um elemento por expressão (bind = ligar) -->
+			<h2 ng-bind="bind" class="text-center"></h2>
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Telefone</th>
+					</tr>
+				</thead>	
+				<!-- ng-repeat repete os valores. Fazendo a Iteração (= repetição) de um objeto ou coleção(array) -->
+				<!-- no caso "contato" é um item da array | e contatos o nome da array!!!!-->
+				<!-- contato é um objeto!!!!!! contatos = nomeArray; -->
+				<tr ng-repeat="contato in contatos">
+					<td ng-bind = "contato.nome"><!-- {{contato.nome}} --></td>
+					<td ng-bind = "contato.telefone"><!-- {{contato.telefone}} --></td>
+				</tr>
+			</table>
+			<br>
+			
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<!-- ng-model é o contrário de ng-bind, {{}} e ng-repeat. Enquanto ele coloca um valor do Scope no View, o ng-model traz o valor do view(que o usuário digita normalmente), e cria uma var $scope. -->
+				<input type="text" name="nome" ng-model="contato.nome" class="form-control">
+				
+				<label for="tel">Telefone:</label>
+				<input type="text" name="tel" ng-model="contato.telefone" class="form-control">
+				
+			</div>
+			<!-- ng-click tem a mesma função do onclick -->	
+			<!-- ng-disabled tem a função de desabilitar o botão, se a condição que estiver dentro dele for true!! -->
+			<button class="btn btn-secondary btn-block" ng-disabled="!contato.nome || !contato.telefone" ng-click ="salvarContato(contato)" >Salvar Contato</button>
+																	<!--OU:
+																		ng-click="salvarContato(nome, telefone)"
+																	  -->
+		</div>
+		
+	</body>
+</html>

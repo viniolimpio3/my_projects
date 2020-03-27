@@ -1,0 +1,14 @@
+COMANDOS GITHUB
+CRIAR PROJETO
+ - git init
+ - git add .
+ - git commit -m "Primeiro Commit"
+ - git remote add origin https://github.com/viniOlimpio/nome_projeto.git
+ - git push -u origin master
+-----------------------------------------------------
+ - git status  -- para saber o que acontece com o projeto
+-----------------------------------------------------
+ATUALIZAR PROJETO
+ - git add .
+ - git commit -m "digite sua mensagem de commit aqui"
+ - git push origin master
